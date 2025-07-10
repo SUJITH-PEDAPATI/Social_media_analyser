@@ -970,51 +970,66 @@ elif section == "dashboard":
             st.warning("Please Select One of the Options!")
         elif (genre == "Demographic Insights"):
             question = st.selectbox("Which one would you like to analyse ?",["How Does age Affect the platform usage?","Which Gender spends more time watching videos?"])
-            if (question == "How Does age Affect the platform usage?"):
-                filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
+            if question == "How Does age Affect the platform usage?":
+                filter_by = st.radio("Filter By:", ["None", "Gender", "Age", "Platform"], horizontal=True)
                 if filter_by == "None":
-                    st.warning("Please Select atleast one of the options.")
-                if filter_by != "None":
+                    st.warning("Please Select at least one of the options.")
+                else:
                     with st.spinner("Loading..."):
                         time.sleep(2)
-                    filter_value = st.selectbox(f"Select {filter_by}",options = df[filter_by].unique())
+                    if filter_by == "Age":
+                        min_age = int(df['Age'].min())
+                        max_age = int(df['Age'].max())
+                        filter_value = st.slider(f"Select {filter_by}", min_value=min_age, max_value=max_age)
+                    else:
+                        filter_value = st.selectbox(f"Select {filter_by}", options=df[filter_by].unique())
                     df = df[df[filter_by.replace(" ", "_")] == filter_value]
                     fig = px.scatter(
                         df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
+                        x='Age',
+                        y='Total Time Spent',
+                        color='Platform',
+                        title="Age vs. Time Spent by Platform"
                     )
-                    st.plotly_chart(fig,use_container_width = True)
+                    st.plotly_chart(fig, use_container_width=True)
             if (question == "Which Gender spends more time watching videos?"):
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
-                    st.warning("Please Select atleast one of the options.")
-                if filter_by != "None":
+                    st.warning("Please Select at least one of the options.")
+                else:
                     with st.spinner("Loading..."):
                         time.sleep(2)
-                    filter_value = st.selectbox(f"Select {filter_by}",options = df[filter_by].unique())
-                    df = df[df[filter_by.replace(" ", "_")] == 
-                    filter_value]
+                    if filter_by == "Age":
+                        min_age = int(df['Age'].min())
+                        max_age = int(df['Age'].max())
+                        filter_value = st.slider(f"Select {filter_by}", min_value=min_age, max_value=max_age)
+                    else:
+                        filter_value = st.selectbox(f"Select {filter_by}", options=df[filter_by].unique())
+                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
                     fig = px.box(
                         df,
-                        x = 'Gender',
-                        y = 'Watch Time',
-                        color = 'Gender',
-                        title = "Watch Time by Gender and Device",
+                        x='Gender',
+                        y='Watch Time',
+                        color='Gender',
+                        title="Watch Time by Gender and Device",
                     )
-                    st.plotly_chart(fig,use_container_width=True)
+                    st.plotly_chart(fig, use_container_width=True)
+
         elif ( genre == "Engagement Patterns"):
             question = st.selectbox("Which one would you wanna Analyse?",["Do longer videos get more engagement?","Which device types have the highest scroll rates?"])
             if question == "Do longer videos get more engagement?":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by != "None":
+                else:
                     with st.spinner("Loading..."):
                         time.sleep(2)
-                    filter_value = st.selectbox(f"Select {filter_by}",options = df[filter_by].unique())
+                    if filter_by == "Age":
+                        min_age = int(df['Age'].min())
+                        max_age = int(df['Age'].max())
+                        filter_value = st.slider(f"Select {filter_by}", min_value=min_age, max_value=max_age)
+                    else:
+                        filter_value = st.selectbox(f"Select {filter_by}", options=df[filter_by].unique())
                     df = df[df[filter_by.replace(" ", "_")] == 
                     filter_value]
                     fig = px.scatter(
@@ -1030,13 +1045,17 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by != "None":
+                else:
                     with st.spinner("Loading..."):
                         time.sleep(2)
-                    filter_value = st.selectbox(f"Select {filter_by}",options = df[filter_by].unique())
-                    df = df[df[filter_by.replace(" ", "_")] == 
-                    filter_value]
-                    df = df.groupby('DeviceType')['Scroll Rate'].mean().reset_index(),
+                    if filter_by == "Age":
+                        min_age = int(df['Age'].min())
+                        max_age = int(df['Age'].max())
+                        filter_value = st.slider(f"Select {filter_by}", min_value=min_age, max_value=max_age)
+                    else:
+                        filter_value = st.selectbox(f"Select {filter_by}", options=df[filter_by].unique())
+                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
+                    df = df.groupby('DeviceType')['Scroll Rate'].mean().reset_index()
                     fig = px.bar(
                         df,
                         x='DeviceType',
@@ -1051,12 +1070,16 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by != "None":
+                else:
                     with st.spinner("Loading..."):
                         time.sleep(2)
-                    filter_value = st.selectbox(f"Select {filter_by}",options = df[filter_by].unique())
-                    df = df[df[filter_by.replace(" ", "_")] == 
-                    filter_value]
+                    if filter_by == "Age":
+                        min_age = int(df['Age'].min())
+                        max_age = int(df['Age'].max())
+                        filter_value = st.slider(f"Select {filter_by}", min_value=min_age, max_value=max_age)
+                    else:
+                        filter_value = st.selectbox(f"Select {filter_by}", options=df[filter_by].unique())
+                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
                     fig = px.violin(
                         df,
                         x = 'Addiction Level',
@@ -1069,10 +1092,15 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by != "None":
+                else:
                     with st.spinner("Loading..."):
                         time.sleep(2)
-                    filter_value = st.selectbox(f"Select {filter_by}",options = df[filter_by].unique())
+                    if filter_by == "Age":
+                        min_age = int(df['Age'].min())
+                        max_age = int(df['Age'].max())
+                        filter_value = st.slider(f"Select {filter_by}", min_value=min_age, max_value=max_age)
+                    else:
+                        filter_value = st.selectbox(f"Select {filter_by}", options=df[filter_by].unique())
                     df = df[df[filter_by.replace(" ", "_")] == 
                     filter_value]
                     fig = px.strip(
@@ -1089,10 +1117,15 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by != "None":
+                else:
                     with st.spinner("Loading..."):
                         time.sleep(2)
-                    filter_value = st.selectbox(f"Select {filter_by}",options = df[filter_by].unique())
+                    if filter_by == "Age":
+                        min_age = int(df['Age'].min())
+                        max_age = int(df['Age'].max())
+                        filter_value = st.slider(f"Select {filter_by}", min_value=min_age, max_value=max_age)
+                    else:
+                        filter_value = st.selectbox(f"Select {filter_by}", options=df[filter_by].unique())
                     df = df[df[filter_by.replace(" ", "_")] == 
                     filter_value]
                     fig = px.sunburst(
@@ -1106,12 +1139,16 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by != "None":
+                else:
                     with st.spinner("Loading..."):
                         time.sleep(2)
-                    filter_value = st.selectbox(f"Select {filter_by}",options = df[filter_by].unique())
-                    df = df[df[filter_by.replace(" ", "_")] == 
-                    filter_value]
+                    if filter_by == "Age":
+                        min_age = int(df['Age'].min())
+                        max_age = int(df['Age'].max())
+                        filter_value = st.slider(f"Select {filter_by}", min_value=min_age, max_value=max_age)
+                    else:
+                        filter_value = st.selectbox(f"Select {filter_by}", options=df[filter_by].unique())
+                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
                     fig = px.pie(
                         df,
                         names='Watch Reason',
@@ -1121,14 +1158,19 @@ elif section == "dashboard":
         elif genre == "Technical Factors":
             question = st.selectbox("Which one would you like to analyse ?",["Does connection type affect engagement?","Which OS has the longest sessions?"])
             if question == "Does connection type affect engagement?":
+                filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by != "None":
+                else:
                     with st.spinner("Loading..."):
                         time.sleep(2)
-                    filter_value = st.selectbox(f"Select {filter_by}",options = df[filter_by].unique())
-                    df = df[df[filter_by.replace(" ", "_")] == 
-                    filter_value]
+                    if filter_by == "Age":
+                        min_age = int(df['Age'].min())
+                        max_age = int(df['Age'].max())
+                        filter_value = st.slider(f"Select {filter_by}", min_value=min_age, max_value=max_age)
+                    else:
+                        filter_value = st.selectbox(f"Select {filter_by}", options=df[filter_by].unique())
+                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
                     fig = px.box(
                         df,
                         x='ConnectionType',
@@ -1138,14 +1180,19 @@ elif section == "dashboard":
                     )
                     st.plotly_chart(fig,use_container_width=True)
             if question == "Which OS has the longest sessions?":
+                filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by != "None":
+                else:
                     with st.spinner("Loading..."):
                         time.sleep(2)
-                    filter_value = st.selectbox(f"Select {filter_by}",options = df[filter_by].unique())
-                    df = df[df[filter_by.replace(" ", "_")] == 
-                    filter_value]
+                    if filter_by == "Age":
+                        min_age = int(df['Age'].min())
+                        max_age = int(df['Age'].max())
+                        filter_value = st.slider(f"Select {filter_by}", min_value=min_age, max_value=max_age)
+                    else:
+                        filter_value = st.selectbox(f"Select {filter_by}", options=df[filter_by].unique())
+                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
                     df=df.groupby('OS')['Number of Sessions'].sum().reset_index()
                     fig = px.bar(
                         df,
