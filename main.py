@@ -974,17 +974,6 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by == "Age":
-                    filter_value = st.slider("Age: ",18,64,18)
-                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
-                    fig = px.scatter(
-                        df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
-                    )
-                    st.plotly_chart(fig,use_container_width = True)
                 if filter_by != "None":
                     with st.spinner("Loading..."):
                         time.sleep(2)
@@ -1002,17 +991,6 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by == "Age":
-                    filter_value = st.slider("Age: ",18,64,18)
-                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
-                    fig = px.scatter(
-                        df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
-                    )
-                    st.plotly_chart(fig,use_container_width = True)
                 if filter_by != "None":
                     with st.spinner("Loading..."):
                         time.sleep(2)
@@ -1033,17 +1011,6 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by == "Age":
-                    filter_value = st.slider("Age: ",18,64,18)
-                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
-                    fig = px.scatter(
-                        df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
-                    )
-                    st.plotly_chart(fig,use_container_width = True)
                 if filter_by != "None":
                     with st.spinner("Loading..."):
                         time.sleep(2)
@@ -1063,17 +1030,6 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by == "Age":
-                    filter_value = st.slider("Age: ",18,64,18)
-                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
-                    fig = px.scatter(
-                        df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
-                    )
-                    st.plotly_chart(fig,use_container_width = True)
                 if filter_by != "None":
                     with st.spinner("Loading..."):
                         time.sleep(2)
@@ -1095,17 +1051,6 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by == "Age":
-                    filter_value = st.slider("Age: ",18,64,18)
-                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
-                    fig = px.scatter(
-                        df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
-                    )
-                    st.plotly_chart(fig,use_container_width = True)
                 if filter_by != "None":
                     with st.spinner("Loading..."):
                         time.sleep(2)
@@ -1124,17 +1069,6 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by == "Age":
-                    filter_value = st.slider("Age: ",18,64,18)
-                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
-                    fig = px.scatter(
-                        df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
-                    )
-                    st.plotly_chart(fig,use_container_width = True)
                 if filter_by != "None":
                     with st.spinner("Loading..."):
                         time.sleep(2)
@@ -1155,17 +1089,6 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by == "Age":
-                    filter_value = st.slider("Age: ",18,64,18)
-                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
-                    fig = px.scatter(
-                        df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
-                    )
-                    st.plotly_chart(fig,use_container_width = True)
                 if filter_by != "None":
                     with st.spinner("Loading..."):
                         time.sleep(2)
@@ -1183,17 +1106,6 @@ elif section == "dashboard":
                 filter_by = st.radio("Filter By:",["None","Gender","Age","Platform"],horizontal = True)
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by == "Age":
-                    filter_value = st.slider("Age: ",18,64,18)
-                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
-                    fig = px.scatter(
-                        df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
-                    )
-                    st.plotly_chart(fig,use_container_width = True)
                 if filter_by != "None":
                     with st.spinner("Loading..."):
                         time.sleep(2)
@@ -1211,17 +1123,6 @@ elif section == "dashboard":
             if question == "Does connection type affect engagement?":
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by == "Age":
-                    filter_value = st.slider("Age: ",18,64,18)
-                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
-                    fig = px.scatter(
-                        df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
-                    )
-                    st.plotly_chart(fig,use_container_width = True)
                 if filter_by != "None":
                     with st.spinner("Loading..."):
                         time.sleep(2)
@@ -1239,17 +1140,6 @@ elif section == "dashboard":
             if question == "Which OS has the longest sessions?":
                 if filter_by == "None":
                     st.warning("Please Select atleast one of the options.")
-                if filter_by == "Age":
-                    filter_value = st.slider("Age: ",18,64,18)
-                    df = df[df[filter_by.replace(" ", "_")] == filter_value]
-                    fig = px.scatter(
-                        df,
-                        x = 'Age',
-                        y = 'Total Time Spent',
-                        color = 'Platform',
-                        title = "Age vs. Time Spent by Platform"
-                    )
-                    st.plotly_chart(fig,use_container_width = True)
                 if filter_by != "None":
                     with st.spinner("Loading..."):
                         time.sleep(2)
